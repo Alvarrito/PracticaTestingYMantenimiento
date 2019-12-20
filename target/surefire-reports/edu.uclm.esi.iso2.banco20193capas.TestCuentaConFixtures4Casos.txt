@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: edu.uclm.esi.iso2.banco20193capas.TestCuentaConFixtures4Casos
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.765 s <<< FAILURE! - in edu.uclm.esi.iso2.banco20193capas.TestCuentaConFixtures4Casos
+testTarjetaBloqueada(edu.uclm.esi.iso2.banco20193capas.TestCuentaConFixtures4Casos)  Time elapsed: 0.143 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Esperaba TarjetaBloqueadaException
+	at edu.uclm.esi.iso2.banco20193capas.TestCuentaConFixtures4Casos.testTarjetaBloqueada(TestCuentaConFixtures4Casos.java:81)
+
