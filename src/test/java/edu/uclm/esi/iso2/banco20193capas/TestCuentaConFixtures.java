@@ -10,6 +10,7 @@ import edu.uclm.esi.iso2.banco20193capas.exceptions.CuentaInvalidaException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.ImporteInvalidoException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.PinInvalidoException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.SaldoInsuficienteException;
+import edu.uclm.esi.iso2.banco20193capas.exceptions.TarjetaBloqueadaException;
 import edu.uclm.esi.iso2.banco20193capas.model.Cliente;
 import edu.uclm.esi.iso2.banco20193capas.model.Cuenta;
 import edu.uclm.esi.iso2.banco20193capas.model.Manager;
@@ -59,5 +60,38 @@ public class TestCuentaConFixtures extends TestCase {
 			fail("Excepción inesperada en setUp(): " + e);
 		}
 	}
+	
+	@Test
+	public void testSacarDineroTC() {
+		try {
+			this.tcAna.sacarDinero(1234, 80);
+		} catch (PinInvalidoException e) {
+			fail(e.getMessage());
+		} catch (ImporteInvalidoException e) {
+			fail(e.getMessage());
+		} catch (SaldoInsuficienteException e) {
+			fail(e.getMessage());
+		} catch (TarjetaBloqueadaException e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	
+	@Test
+	public void testcomprarporInternetTD() {
+		try {
+			this.tdPepe.comprarPorInternet(1234, 50);
+		} catch (PinInvalidoException e) {
+			fail(e.getMessage());
+		} catch (ImporteInvalidoException e) {
+			fail(e.getMessage());
+		} catch (SaldoInsuficienteException e) {
+			fail(e.getMessage());
+		} catch (TarjetaBloqueadaException e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	
 
 }
