@@ -25,7 +25,7 @@ import edu.uclm.esi.iso2.banco20193capas.exceptions.SaldoInsuficienteException;
 @Entity
 public class Cuenta {
 	@Id 
-	protected Long id;
+	protected Long identificador; //cambiamos el nombre de la variable a identificador en vez de id
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Cliente> titulares;
@@ -36,13 +36,13 @@ public class Cuenta {
 		this.titulares=new ArrayList<>();
 	}
 	
-	public Cuenta(Long id) {
+	public Cuenta(Long identificador) {
 		this();
-		this.id=id;
+		this.identificador=identificador;
 	}
 	
-	public Cuenta(Integer id) {
-		this(new Long(id));
+	public Cuenta(Integer identificador) {
+		this(Long.valueOf(identificador)); //New long es mas ineficiente que Long.valueOf
 	}
 	
 	/**
@@ -133,7 +133,7 @@ public class Cuenta {
 	 * @return	El saldo de la cuenta
 	 */
 	public double getSaldo() {
-		List<MovimientoCuenta> mm = Manager.getMovimientoDAO().findByCuentaId(this.id);
+		List<MovimientoCuenta> mm = Manager.getMovimientoDAO().findByCuentaId(this.identificador);
 		double saldo = 0.0;
 		for (MovimientoCuenta m : mm)
 			saldo = saldo + m.getImporte();
@@ -171,7 +171,7 @@ public class Cuenta {
 			}
 
 		if (!encontrado)
-			throw new ClienteNoAutorizadoException(nif, this.id);
+			throw new ClienteNoAutorizadoException(nif, this.identificador);
 		TarjetaDebito tarjeta = new TarjetaDebito();
 		tarjeta.setCuenta(this);
 		tarjeta.setTitular(cliente);
@@ -199,7 +199,7 @@ public class Cuenta {
 				break;
 			}
 		if (!encontrado)
-			throw new ClienteNoAutorizadoException(nif, this.id);
+			throw new ClienteNoAutorizadoException(nif, this.identificador);
 		TarjetaCredito tarjeta = new TarjetaCredito();
 		tarjeta.setCuenta(this);
 		tarjeta.setTitular(cliente);
@@ -209,11 +209,11 @@ public class Cuenta {
 	}
 
 	public Long getId() {
-		return id;
+		return identificador;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long identificador) {
+		this.identificador = identificador;
 	}
 
 	public List<Cliente> getTitulares() {

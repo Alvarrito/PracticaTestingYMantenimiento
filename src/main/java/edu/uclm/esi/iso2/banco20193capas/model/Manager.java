@@ -26,7 +26,7 @@ public class Manager {
 	private Manager() {	}
 	
 	@Autowired
-	private void loadDAO(CuentaDAO cuentaDao, MovimientoCuentaDAO movimientoDao, 
+	private static void loadDAO(CuentaDAO cuentaDao, MovimientoCuentaDAO movimientoDao, 
 			ClienteDAO clienteDAO, MovimientoTarjetaCreditoDAO movimientoTCDAO, TarjetaDebitoDAO tarjetaDebitoDAO,
 			TarjetaCreditoDAO tarjetaCreditoDAO) {
 		Manager.cuentaDAO = cuentaDao;

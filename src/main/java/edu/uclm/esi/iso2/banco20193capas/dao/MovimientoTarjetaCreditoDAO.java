@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import edu.uclm.esi.iso2.banco20193capas.model.MovimientoTarjetaCredito;
 
 public interface MovimientoTarjetaCreditoDAO extends CrudRepository<MovimientoTarjetaCredito, Long>{
-	List<MovimientoTarjetaCredito> findByTarjetaId(Long id);
+	List<MovimientoTarjetaCredito> findByTarjetaId(Long identificador); //cambiamos el nombre de la variable id por identificador
 }

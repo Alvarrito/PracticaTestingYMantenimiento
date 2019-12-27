@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MovimientoCuenta {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) 
-	private Long id;
+	private Long identificador; //renombrar variable id a identificador
 	@ManyToOne
 	private Cuenta cuenta;
 	
@@ -30,11 +30,11 @@ public class MovimientoCuenta {
 	}
 
 	public Long getId() {
-		return id;
+		return identificador;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long identificador) {
+		this.identificador = identificador;
 	}
 
 	public Cuenta getCuenta() {

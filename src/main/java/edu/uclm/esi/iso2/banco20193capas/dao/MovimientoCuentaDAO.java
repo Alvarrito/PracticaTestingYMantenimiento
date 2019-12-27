@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import edu.uclm.esi.iso2.banco20193capas.model.MovimientoCuenta;
 
 public interface MovimientoCuentaDAO extends CrudRepository<MovimientoCuenta, Long>{
-	List<MovimientoCuenta> findByCuentaId(Long id);
+	List<MovimientoCuenta> findByCuentaId(Long identificador); //cambiamos el nombre de la variable id por identificador
 }

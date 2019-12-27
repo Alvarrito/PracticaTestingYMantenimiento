@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Cliente {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long identificador; //cambiamos nombre de la variable id a identificador
 	@Column(unique = true)
 	protected String nif;
 	
@@ -33,10 +33,10 @@ public class Cliente {
 	}
 
 	public Long getId() {
-		return id;
+		return identificador;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long identificador) {
+		this.identificador = identificador;
 	}
 	public String getNif() {
 		return nif;

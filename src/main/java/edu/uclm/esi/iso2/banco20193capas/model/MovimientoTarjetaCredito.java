@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MovimientoTarjetaCredito {
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) 
-	private Long id;
+	private Long identificador; //renombrar variable id a identificador
 	@ManyToOne
 	private TarjetaCredito tarjeta;
 	
@@ -31,11 +31,11 @@ public class MovimientoTarjetaCredito {
 	}
 
 	public Long getId() {
-		return id;
+		return identificador;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long identificador) {
+		this.identificador = identificador;
 	}
 
 	public TarjetaCredito getTarjeta() {
