@@ -247,19 +247,6 @@ public class TestCuentaConFixtures4Casos extends TestCase {
 		}
 	}
 
-	@Test
-	public void noAutorizadoFallo(){
-		
-		try{
-			this.tcAna = this.cuentaAna.emitirTarjetaCredito(pepe.getNif(), 10000);
-		}catch (ClienteNoAutorizadoException  e){
-			
-		}catch(ClienteNoEncontradoException e) {
-			
-		}
-		
-		
-	}
 
 
 		

@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import edu.uclm.esi.iso2.banco20193capas.exceptions.ClienteNoAutorizadoException;
+import edu.uclm.esi.iso2.banco20193capas.exceptions.ClienteNoEncontradoException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.CuentaInvalidaException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.ImporteInvalidoException;
 import edu.uclm.esi.iso2.banco20193capas.exceptions.PinInvalidoException;
@@ -59,5 +61,19 @@ public class TestCuentaConFixtures extends TestCase {
 			fail("Excepción inesperada en setUp(): " + e);
 		}
 	}
+	@Test
+	public void noAutorizadoFallo(){
+		
+		try{
+			this.tcAna = this.cuentaAna.emitirTarjetaCredito(pepe.getNif(), 10000);
+		}catch (ClienteNoAutorizadoException  e){
+			
+		}catch(ClienteNoEncontradoException e) {
+			
+		}
+		
+		
+	}
+
 
 }
