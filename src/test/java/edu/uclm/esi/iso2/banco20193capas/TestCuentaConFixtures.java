@@ -61,6 +61,7 @@ public class TestCuentaConFixtures extends TestCase {
 			fail("Excepción inesperada en setUp(): " + e);
 		}
 	}
+	
 	@Test
 	public void noAutorizadoFallo(){
 		
